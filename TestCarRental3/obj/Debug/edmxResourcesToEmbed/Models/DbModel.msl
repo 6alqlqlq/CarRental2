@@ -1,0 +1,187 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="carrentalModelStoreContainer" CdmEntityContainer="DbModel">
+    <EntitySetMapping Name="admins">
+      <EntityTypeMapping TypeName="carrentalModel.admin">
+        <MappingFragment StoreEntitySet="admin">
+          <ScalarProperty Name="admin_id" ColumnName="admin_id" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="username" ColumnName="username" />
+          <ScalarProperty Name="password" ColumnName="password" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="bookings">
+      <EntityTypeMapping TypeName="carrentalModel.booking">
+        <MappingFragment StoreEntitySet="booking">
+          <ScalarProperty Name="BookingID" ColumnName="BookingID" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="CarID" ColumnName="CarID" />
+          <ScalarProperty Name="PeriodID" ColumnName="PeriodID" />
+          <ScalarProperty Name="BookingFrom" ColumnName="BookingFrom" />
+          <ScalarProperty Name="BookingTo" ColumnName="BookingTo" />
+          <ScalarProperty Name="BookingPrice" ColumnName="BookingPrice" />
+          <ScalarProperty Name="CreatedON" ColumnName="CreatedON" />
+          <ScalarProperty Name="ModifiedON" ColumnName="ModifiedON" />
+          <ScalarProperty Name="BookingStatusID" ColumnName="BookingStatusID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="bookingstatus">
+      <EntityTypeMapping TypeName="carrentalModel.bookingstatu">
+        <MappingFragment StoreEntitySet="bookingstatus">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="carprices">
+      <EntityTypeMapping TypeName="carrentalModel.carprice">
+        <MappingFragment StoreEntitySet="carprice">
+          <ScalarProperty Name="CarPriceID" ColumnName="CarPriceID" />
+          <ScalarProperty Name="PricePerDay" ColumnName="PricePerDay" />
+          <ScalarProperty Name="BasseCurrencyID" ColumnName="BasseCurrencyID" />
+          <ScalarProperty Name="CreatedON" ColumnName="CreatedON" />
+          <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="cars">
+      <EntityTypeMapping TypeName="carrentalModel.car">
+        <MappingFragment StoreEntitySet="cars">
+          <ScalarProperty Name="car_id" ColumnName="car_id" />
+          <ScalarProperty Name="car_brand" ColumnName="car_brand" />
+          <ScalarProperty Name="car_model" ColumnName="car_model" />
+          <ScalarProperty Name="YearOfManufacturing" ColumnName="YearOfManufacturing" />
+          <ScalarProperty Name="image" ColumnName="image" />
+          <ScalarProperty Name="capacity" ColumnName="capacity" />
+          <ScalarProperty Name="doors" ColumnName="doors" />
+          <ScalarProperty Name="Engine" ColumnName="Engine" />
+          <ScalarProperty Name="Gearbox" ColumnName="Gearbox" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+          <ScalarProperty Name="hire_cost" ColumnName="hire_cost" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="cities">
+      <EntityTypeMapping TypeName="carrentalModel.city">
+        <MappingFragment StoreEntitySet="city">
+          <ScalarProperty Name="CityID" ColumnName="CityID" />
+          <ScalarProperty Name="CountryID" ColumnName="CountryID" />
+          <ScalarProperty Name="City1" ColumnName="City" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="countries">
+      <EntityTypeMapping TypeName="carrentalModel.country">
+        <MappingFragment StoreEntitySet="country">
+          <ScalarProperty Name="CountryID" ColumnName="CountryID" />
+          <ScalarProperty Name="Country1" ColumnName="Country" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="currencies">
+      <EntityTypeMapping TypeName="carrentalModel.currency">
+        <MappingFragment StoreEntitySet="currency">
+          <ScalarProperty Name="CurrencyID" ColumnName="CurrencyID" />
+          <ScalarProperty Name="CurrencyCode" ColumnName="CurrencyCode" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="messeges">
+      <EntityTypeMapping TypeName="carrentalModel.messege">
+        <MappingFragment StoreEntitySet="messege">
+          <ScalarProperty Name="MessegeID" ColumnName="MessegeID" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="Country" ColumnName="Country" />
+          <ScalarProperty Name="Subject" ColumnName="Subject" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="penalties">
+      <EntityTypeMapping TypeName="carrentalModel.penalty">
+        <MappingFragment StoreEntitySet="penalty">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="PenaltyPerDay" ColumnName="PenaltyPerDay" />
+          <ScalarProperty Name="BaseCurrencyID" ColumnName="BaseCurrencyID" />
+          <ScalarProperty Name="CreatedON" ColumnName="CreatedON" />
+          <ScalarProperty Name="ModifiedON" ColumnName="ModifiedON" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="periods">
+      <EntityTypeMapping TypeName="carrentalModel.period">
+        <MappingFragment StoreEntitySet="period">
+          <ScalarProperty Name="PeriodID" ColumnName="PeriodID" />
+          <ScalarProperty Name="Period1" ColumnName="Period" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="rents">
+      <EntityTypeMapping TypeName="carrentalModel.rent">
+        <MappingFragment StoreEntitySet="rent">
+          <ScalarProperty Name="RentID" ColumnName="RentID" />
+          <ScalarProperty Name="BookingID" ColumnName="BookingID" />
+          <ScalarProperty Name="PeriodID" ColumnName="PeriodID" />
+          <ScalarProperty Name="RentFrom" ColumnName="RentFrom" />
+          <ScalarProperty Name="RentTo" ColumnName="RentTo" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="RentPrice" ColumnName="RentPrice" />
+          <ScalarProperty Name="FinalPrice" ColumnName="FinalPrice" />
+          <ScalarProperty Name="CreatedON" ColumnName="CreatedON" />
+          <ScalarProperty Name="ModifiedON" ColumnName="ModifiedON" />
+          <ScalarProperty Name="ReturnedON" ColumnName="ReturnedON" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="PenaltyPrice" ColumnName="PenaltyPrice" />
+          <ScalarProperty Name="RentPricePaidOn" ColumnName="RentPricePaidOn" />
+          <ScalarProperty Name="PenaltyPriceON" ColumnName="PenaltyPriceON" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="rentpenalties">
+      <EntityTypeMapping TypeName="carrentalModel.rentpenalty">
+        <MappingFragment StoreEntitySet="rentpenalty">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="RentID" ColumnName="RentID" />
+          <ScalarProperty Name="PeriodID" ColumnName="PeriodID" />
+          <ScalarProperty Name="PenaltyAmount" ColumnName="PenaltyAmount" />
+          <ScalarProperty Name="FinalPenalty" ColumnName="FinalPenalty" />
+          <ScalarProperty Name="BaseCurrencyID" ColumnName="BaseCurrencyID" />
+          <ScalarProperty Name="CreatedON" ColumnName="CreatedON" />
+          <ScalarProperty Name="ModifiedON" ColumnName="ModifiedON" />
+          <ScalarProperty Name="PaidON" ColumnName="PaidON" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="rentstatus">
+      <EntityTypeMapping TypeName="carrentalModel.rentstatu">
+        <MappingFragment StoreEntitySet="rentstatus">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="users">
+      <EntityTypeMapping TypeName="carrentalModel.user">
+        <MappingFragment StoreEntitySet="user">
+          <ScalarProperty Name="client_id" ColumnName="client_id" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="CountryID" ColumnName="CountryID" />
+          <ScalarProperty Name="CityID" ColumnName="CityID" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="username" ColumnName="username" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="CreatedON" ColumnName="CreatedON" />
+          <ScalarProperty Name="ModifiedON" ColumnName="ModifiedON" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

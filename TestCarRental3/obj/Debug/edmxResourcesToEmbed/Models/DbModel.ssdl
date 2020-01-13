@@ -1,0 +1,187 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="carrentalModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="admin">
+    <Key>
+      <PropertyRef Name="admin_id" />
+    </Key>
+    <Property Name="admin_id" Type="int" Nullable="false" />
+    <Property Name="FirstName" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="LastName" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="email" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="username" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="password" Type="varchar" MaxLength="255" Nullable="false" />
+  </EntityType>
+  <EntityType Name="booking">
+    <Key>
+      <PropertyRef Name="BookingID" />
+    </Key>
+    <Property Name="BookingID" Type="int" Nullable="false" />
+    <Property Name="UserID" Type="int" Nullable="false" />
+    <Property Name="CarID" Type="int" Nullable="false" />
+    <Property Name="PeriodID" Type="int" Nullable="false" />
+    <Property Name="BookingFrom" Type="date" Nullable="false" />
+    <Property Name="BookingTo" Type="date" Nullable="false" />
+    <Property Name="BookingPrice" Type="int" Nullable="false" />
+    <Property Name="CreatedON" Type="date" Nullable="false" />
+    <Property Name="ModifiedON" Type="date" Nullable="false" />
+    <Property Name="BookingStatusID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="bookingstatus">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="Status" Type="varchar" MaxLength="255" Nullable="false" />
+  </EntityType>
+  <EntityType Name="carprice">
+    <Key>
+      <PropertyRef Name="CarPriceID" />
+    </Key>
+    <Property Name="CarPriceID" Type="int" Nullable="false" />
+    <Property Name="PricePerDay" Type="int" Nullable="false" />
+    <Property Name="BasseCurrencyID" Type="int" Nullable="false" />
+    <Property Name="CreatedON" Type="date" />
+    <Property Name="ModifiedOn" Type="date" />
+  </EntityType>
+  <EntityType Name="cars">
+    <Key>
+      <PropertyRef Name="car_id" />
+    </Key>
+    <Property Name="car_id" Type="int" Nullable="false" />
+    <Property Name="car_brand" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="car_model" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="YearOfManufacturing" Type="int" Nullable="false" />
+    <Property Name="image" Type="text" Nullable="false" />
+    <Property Name="capacity" Type="int" Nullable="false" />
+    <Property Name="doors" Type="int" Nullable="false" />
+    <Property Name="Engine" Type="varchar" MaxLength="45" Nullable="false" />
+    <Property Name="Gearbox" Type="varchar" MaxLength="45" Nullable="false" />
+    <Property Name="status" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="CreatedOn" Type="date" />
+    <Property Name="ModifiedOn" Type="date" />
+    <Property Name="hire_cost" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="city">
+    <Key>
+      <PropertyRef Name="CityID" />
+    </Key>
+    <Property Name="CityID" Type="int" Nullable="false" />
+    <Property Name="CountryID" Type="int" Nullable="false" />
+    <Property Name="City" Type="varchar" MaxLength="255" Nullable="false" />
+  </EntityType>
+  <EntityType Name="country">
+    <Key>
+      <PropertyRef Name="CountryID" />
+    </Key>
+    <Property Name="CountryID" Type="int" Nullable="false" />
+    <Property Name="Country" Type="varchar" MaxLength="255" Nullable="false" />
+  </EntityType>
+  <EntityType Name="currency">
+    <Key>
+      <PropertyRef Name="CurrencyID" />
+    </Key>
+    <Property Name="CurrencyID" Type="int" Nullable="false" />
+    <Property Name="CurrencyCode" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="messege">
+    <Key>
+      <PropertyRef Name="MessegeID" />
+    </Key>
+    <Property Name="MessegeID" Type="int" Nullable="false" />
+    <Property Name="FirstName" Type="int" Nullable="false" />
+    <Property Name="LastName" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="Country" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="Subject" Type="varchar" MaxLength="255" Nullable="false" />
+  </EntityType>
+  <EntityType Name="penalty">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="PenaltyPerDay" Type="int" Nullable="false" />
+    <Property Name="BaseCurrencyID" Type="int" Nullable="false" />
+    <Property Name="CreatedON" Type="date" Nullable="false" />
+    <Property Name="ModifiedON" Type="date" Nullable="false" />
+  </EntityType>
+  <EntityType Name="period">
+    <Key>
+      <PropertyRef Name="PeriodID" />
+    </Key>
+    <Property Name="PeriodID" Type="int" Nullable="false" />
+    <Property Name="Period" Type="varchar" MaxLength="255" Nullable="false" />
+  </EntityType>
+  <EntityType Name="rent">
+    <Key>
+      <PropertyRef Name="RentID" />
+    </Key>
+    <Property Name="RentID" Type="int" Nullable="false" />
+    <Property Name="BookingID" Type="int" Nullable="false" />
+    <Property Name="PeriodID" Type="int" Nullable="false" />
+    <Property Name="RentFrom" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="RentTo" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="UserID" Type="int" Nullable="false" />
+    <Property Name="RentPrice" Type="int" Nullable="false" />
+    <Property Name="FinalPrice" Type="int" Nullable="false" />
+    <Property Name="CreatedON" Type="date" Nullable="false" />
+    <Property Name="ModifiedON" Type="date" Nullable="false" />
+    <Property Name="ReturnedON" Type="date" Nullable="false" />
+    <Property Name="Status" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="PenaltyPrice" Type="int" Nullable="false" />
+    <Property Name="RentPricePaidOn" Type="int" Nullable="false" />
+    <Property Name="PenaltyPriceON" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="rentpenalty">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="RentID" Type="int" Nullable="false" />
+    <Property Name="PeriodID" Type="int" Nullable="false" />
+    <Property Name="PenaltyAmount" Type="int" Nullable="false" />
+    <Property Name="FinalPenalty" Type="int" Nullable="false" />
+    <Property Name="BaseCurrencyID" Type="int" Nullable="false" />
+    <Property Name="CreatedON" Type="date" Nullable="false" />
+    <Property Name="ModifiedON" Type="date" Nullable="false" />
+    <Property Name="PaidON" Type="date" Nullable="false" />
+  </EntityType>
+  <EntityType Name="rentstatus">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="Status" Type="varchar" MaxLength="255" Nullable="false" />
+  </EntityType>
+  <EntityType Name="user">
+    <Key>
+      <PropertyRef Name="client_id" />
+    </Key>
+    <Property Name="client_id" Type="int" Nullable="false" />
+    <Property Name="FirstName" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="LastName" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="CountryID" Type="int" Nullable="false" />
+    <Property Name="CityID" Type="int" Nullable="false" />
+    <Property Name="Address" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="email" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="username" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="password" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="CreatedON" Type="date" Nullable="false" />
+    <Property Name="ModifiedON" Type="date" Nullable="false" />
+  </EntityType>
+  <EntityContainer Name="carrentalModelStoreContainer">
+    <EntitySet Name="admin" EntityType="Self.admin" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="booking" EntityType="Self.booking" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="bookingstatus" EntityType="Self.bookingstatus" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="carprice" EntityType="Self.carprice" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="cars" EntityType="Self.cars" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="city" EntityType="Self.city" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="country" EntityType="Self.country" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="currency" EntityType="Self.currency" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="messege" EntityType="Self.messege" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="penalty" EntityType="Self.penalty" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="period" EntityType="Self.period" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="rent" EntityType="Self.rent" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="rentpenalty" EntityType="Self.rentpenalty" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="rentstatus" EntityType="Self.rentstatus" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="user" EntityType="Self.user" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

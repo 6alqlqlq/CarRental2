@@ -1,0 +1,89 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<!-- Carousel image-->
+<div id="carousel-cars" class="carousel slide" data-ride="carousel">
+    <!-- Wrapper for slides -->
+    <div class="carousel-inner">
+        <div class="item bg bg1 active">
+            <div class="carousel-container">
+                <div class="carousel-caption">
+                    <h4>Get only best for you!</h4>
+                    <p>Click below to see our offer.</p>
+                    @Html.ActionLink("Cars", "Index", "Cars", null, new { @class = "carousel-button" })
+                    <br />
+                </div>
+            </div>
+        </div>
+        <div class="item bg bg2">
+            <div class="carousel-container">
+                <div class="carousel-caption">
+                    <h4>Register today!</h4>
+                    <p>Get your car in two steps!</p>
+                    @Html.ActionLink("Register", "Register", "Account", new { area = "Account" }, new { @class = "carousel-button" })
+                    <br />
+                </div>
+            </div>
+        </div>
+        <div class="item bg bg3">
+            <div class="carousel-container">
+                <div class="carousel-caption">
+                    <h4>Book Now</h4>
+                    <p>Choose from every model we have</p>
+                </div>
+            </div>
+        </div>
+        <!-- Controls next and previous -->
+        <a class="left carousel-control" href="#carousel-cars" role="button" data-slide="prev">
+            <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+            <span class="sr-only"></span>
+        </a>
+        <a class="right carousel-control" href="#carousel-cars" role="button" data-slide="next">
+            <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+            <span class="sr-only"></span>
+        </a>
+    </div>
+</div>
+<!--End Carousel image-->
+<!--Special Offers -->
+<section class="listing">
+    <h2 style="text-align: center"> Special Offers</h2>
+    <div class="row">
+        <div class="column-card">
+            <div class="card">
+                <img src="imgcars/golf7.jpg" alt="golf" style="width:100%">
+                <div class="container-card">
+                    <p>Volkswagen Golf7</p>
+                    <p>Only for 54$/Day</p>
+                    <p>  </p>
+                    <p><button class="button-card" type="button" onclick="location.href='';">Book Now</button></p>
+                </div>
+            </div>
+        </div>
+
+        <div class="column-card">
+            <div class="card">
+                <img src="imgcars/630.jpg" alt="bmw" style="width:100%">
+                <div class="container-card">
+                    <p>BMW 520 </p>
+                    <p>Only for 54$/Day</p>
+                    
+                    <p><button class="button-card" type="button" onclick="location.href='';">Book Now</button></p>
+                </div>
+            </div>
+        </div>
+
+        <div class="column-card">
+            <div class="card">
+                <img src="imgcars/teslaS.jpg" alt="tesla" style="width:100%">
+                <div class="container-card">
+                    <p>Tesla Model S</p>
+                    <p>Only for 54$/Day</p>
+                    <p></p>
+                    <p><button class="button-card" type="button" onclick="location.href='';">Book Now</button></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

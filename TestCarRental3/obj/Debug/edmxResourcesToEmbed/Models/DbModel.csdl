@@ -1,0 +1,187 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="carrentalModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="admin">
+    <Key>
+      <PropertyRef Name="admin_id" />
+    </Key>
+    <Property Name="admin_id" Type="Int32" Nullable="false" />
+    <Property Name="FirstName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="LastName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="email" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="username" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="password" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="booking">
+    <Key>
+      <PropertyRef Name="BookingID" />
+    </Key>
+    <Property Name="BookingID" Type="Int32" Nullable="false" />
+    <Property Name="UserID" Type="Int32" Nullable="false" />
+    <Property Name="CarID" Type="Int32" Nullable="false" />
+    <Property Name="PeriodID" Type="Int32" Nullable="false" />
+    <Property Name="BookingFrom" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="BookingTo" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="BookingPrice" Type="Int32" Nullable="false" />
+    <Property Name="CreatedON" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="ModifiedON" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="BookingStatusID" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="bookingstatu">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="Status" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="carprice">
+    <Key>
+      <PropertyRef Name="CarPriceID" />
+    </Key>
+    <Property Name="CarPriceID" Type="Int32" Nullable="false" />
+    <Property Name="PricePerDay" Type="Int32" Nullable="false" />
+    <Property Name="BasseCurrencyID" Type="Int32" Nullable="false" />
+    <Property Name="CreatedON" Type="DateTime" Precision="0" />
+    <Property Name="ModifiedOn" Type="DateTime" Precision="0" />
+  </EntityType>
+  <EntityType Name="car">
+    <Key>
+      <PropertyRef Name="car_id" />
+    </Key>
+    <Property Name="car_id" Type="Int32" Nullable="false" />
+    <Property Name="car_brand" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="car_model" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="YearOfManufacturing" Type="Int32" Nullable="false" />
+    <Property Name="image" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="capacity" Type="Int32" Nullable="false" />
+    <Property Name="doors" Type="Int32" Nullable="false" />
+    <Property Name="Engine" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Gearbox" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="status" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="CreatedOn" Type="DateTime" Precision="0" />
+    <Property Name="ModifiedOn" Type="DateTime" Precision="0" />
+    <Property Name="hire_cost" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="city">
+    <Key>
+      <PropertyRef Name="CityID" />
+    </Key>
+    <Property Name="CityID" Type="Int32" Nullable="false" />
+    <Property Name="CountryID" Type="Int32" Nullable="false" />
+    <Property Name="City1" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="country">
+    <Key>
+      <PropertyRef Name="CountryID" />
+    </Key>
+    <Property Name="CountryID" Type="Int32" Nullable="false" />
+    <Property Name="Country1" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="currency">
+    <Key>
+      <PropertyRef Name="CurrencyID" />
+    </Key>
+    <Property Name="CurrencyID" Type="Int32" Nullable="false" />
+    <Property Name="CurrencyCode" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="messege">
+    <Key>
+      <PropertyRef Name="MessegeID" />
+    </Key>
+    <Property Name="MessegeID" Type="Int32" Nullable="false" />
+    <Property Name="FirstName" Type="Int32" Nullable="false" />
+    <Property Name="LastName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Country" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Subject" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="penalty">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="PenaltyPerDay" Type="Int32" Nullable="false" />
+    <Property Name="BaseCurrencyID" Type="Int32" Nullable="false" />
+    <Property Name="CreatedON" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="ModifiedON" Type="DateTime" Nullable="false" Precision="0" />
+  </EntityType>
+  <EntityType Name="period">
+    <Key>
+      <PropertyRef Name="PeriodID" />
+    </Key>
+    <Property Name="PeriodID" Type="Int32" Nullable="false" />
+    <Property Name="Period1" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="rent">
+    <Key>
+      <PropertyRef Name="RentID" />
+    </Key>
+    <Property Name="RentID" Type="Int32" Nullable="false" />
+    <Property Name="BookingID" Type="Int32" Nullable="false" />
+    <Property Name="PeriodID" Type="Int32" Nullable="false" />
+    <Property Name="RentFrom" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="RentTo" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="UserID" Type="Int32" Nullable="false" />
+    <Property Name="RentPrice" Type="Int32" Nullable="false" />
+    <Property Name="FinalPrice" Type="Int32" Nullable="false" />
+    <Property Name="CreatedON" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="ModifiedON" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="ReturnedON" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Status" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="PenaltyPrice" Type="Int32" Nullable="false" />
+    <Property Name="RentPricePaidOn" Type="Int32" Nullable="false" />
+    <Property Name="PenaltyPriceON" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="rentpenalty">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="RentID" Type="Int32" Nullable="false" />
+    <Property Name="PeriodID" Type="Int32" Nullable="false" />
+    <Property Name="PenaltyAmount" Type="Int32" Nullable="false" />
+    <Property Name="FinalPenalty" Type="Int32" Nullable="false" />
+    <Property Name="BaseCurrencyID" Type="Int32" Nullable="false" />
+    <Property Name="CreatedON" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="ModifiedON" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="PaidON" Type="DateTime" Nullable="false" Precision="0" />
+  </EntityType>
+  <EntityType Name="rentstatu">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="Status" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="user">
+    <Key>
+      <PropertyRef Name="client_id" />
+    </Key>
+    <Property Name="client_id" Type="Int32" Nullable="false" />
+    <Property Name="FirstName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="LastName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="CountryID" Type="Int32" Nullable="false" />
+    <Property Name="CityID" Type="Int32" Nullable="false" />
+    <Property Name="Address" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="email" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="username" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="password" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="CreatedON" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="ModifiedON" Type="DateTime" Nullable="false" Precision="0" />
+  </EntityType>
+  <EntityContainer Name="DbModel" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="admins" EntityType="Self.admin" />
+    <EntitySet Name="bookings" EntityType="Self.booking" />
+    <EntitySet Name="bookingstatus" EntityType="Self.bookingstatu" />
+    <EntitySet Name="carprices" EntityType="Self.carprice" />
+    <EntitySet Name="cars" EntityType="Self.car" />
+    <EntitySet Name="cities" EntityType="Self.city" />
+    <EntitySet Name="countries" EntityType="Self.country" />
+    <EntitySet Name="currencies" EntityType="Self.currency" />
+    <EntitySet Name="messeges" EntityType="Self.messege" />
+    <EntitySet Name="penalties" EntityType="Self.penalty" />
+    <EntitySet Name="periods" EntityType="Self.period" />
+    <EntitySet Name="rents" EntityType="Self.rent" />
+    <EntitySet Name="rentpenalties" EntityType="Self.rentpenalty" />
+    <EntitySet Name="rentstatus" EntityType="Self.rentstatu" />
+    <EntitySet Name="users" EntityType="Self.user" />
+  </EntityContainer>
+</Schema>
