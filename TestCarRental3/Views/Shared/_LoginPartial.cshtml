@@ -10,10 +10,10 @@
          @Html.ActionLink("Hello " + User.Identity.GetUserName() + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })
          </li>
          <li>
-         @Html.ActionLink("ControlPanel", "ControlPanel", "Home", null, htmlAttributes: new { @class = "navbar-button", title = "Manage" })
+         @Html.ActionLink("ControlPanel", "ControlPanel", "Home", null, htmlAttributes: new { @class = "nav-link", title = "Manage" })
         </li>
         <li>
-        @Html.ActionLink("My Account", "Index", "Details",null,htmlAttributes: new { @class = "navbar-button", title = "Manage" })
+        @Html.ActionLink("My Account", "Index", "Details",null,htmlAttributes: new { @class = "nav-linkn", title = "Manage" })
     
         </li>
     <li><a href="javascript:document.getElementById('logoutForm').submit()">Log off</a></li>
@@ -28,10 +28,10 @@ else if (Request.IsAuthenticated && User.IsInRole("User"))
 
         <ul class="nav navbar-nav navbar-right">
             <li>
-                @Html.ActionLink("My Rents", "Index", "Rents", routeValues: new { area = "MyRents" }, htmlAttributes: new { @class = "navbar-button", title = "Manage" })
+                @Html.ActionLink("My Rents", "Index", "Rents", routeValues: new { area = "MyRents" }, htmlAttributes: new { @class = "nav-link", title = "Manage" })
             </li>
             <li>
-                @Html.ActionLink("My Account", "Index", "Details", routeValues: new { area = "Account" }, htmlAttributes: new { @class = "navbar-button", title = "Manage" })
+                @Html.ActionLink("My Account", "Index", "Details", routeValues: new { area = "Account" }, htmlAttributes: new { @class = "nav-link", title = "Manage" })
             </li>
             <li>
                 @Html.ActionLink("Hello " + User.Identity.GetUserName() + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })
@@ -43,7 +43,7 @@ else if (Request.IsAuthenticated && User.IsInRole("User"))
 else
 {
     <ul class="nav navbar-nav navbar-right">
-        <li>@Html.ActionLink("Register", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>
-        <li>@Html.ActionLink("Log in", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
+        <li>@Html.ActionLink("Register", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink", @class= "nav-link" })</li>
+        <li>@Html.ActionLink("Log in", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink", @class = "nav-link" })</li>
     </ul>
 }
