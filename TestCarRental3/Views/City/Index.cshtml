@@ -1,8 +1,13 @@
-﻿@model IEnumerable<TestCarRental3.Models.City>
+﻿@model IPagedList<TestCarRental3.Models.City>
+@using PagedList;
+@using PagedList.Mvc;
+
+<link href="~/Content/PagedList.css" rel="stylesheet" type="text/css" />
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "City Table";
 }
+
 
 <h2>Index</h2>
 
@@ -12,40 +17,46 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.Id)
-        </th>       
-        <th>
-            @Html.DisplayNameFor(model => model.CountryID)
+            @Html.DisplayNameFor(model => model.First().Id)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.CityName)
+            @Html.DisplayNameFor(model => model.First().CountryID)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.CreatedAt)
+            @Html.DisplayNameFor(model => model.First().CityName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().CreatedAt)
         </th>
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Id)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CreatedAt)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CountryID)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CityName)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
-            @Html.ActionLink("Details", "Details", new { id = item.Id }) |
-            @Html.ActionLink("Delete", "Delete", new { id = item.Id })
-        </td>
-    </tr>
-}
-
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CreatedAt)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CountryID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CityName)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+            </td>
+        </tr>
+    }
 </table>
+<div class="pagination justify-content-center" style="margin-left: 360px;">
+    Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+</div>
+<div class="container" style="margin-left: 350px;">
+    @Html.PagedListPager(Model, page => Url.Action("Index", "City", new { page, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter }))
+</div>

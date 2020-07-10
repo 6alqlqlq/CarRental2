@@ -37,6 +37,9 @@ namespace TestCarRental3.Models
             return new ApplicationDbContext();
         }
         DbSet<Product> Products { get; set; }
-       
+        DbSet<Contact> Contacts { get; set; }
+        DbSet<City> City { get; set; }
+        DbSet<Country> Country { get; set; }
+
     }
 }

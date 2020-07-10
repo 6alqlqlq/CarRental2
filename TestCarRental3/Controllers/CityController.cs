@@ -1,4 +1,6 @@
-﻿using System;
+﻿using PagedList;
+using PagedList.Mvc;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -18,11 +20,14 @@ namespace TestCarRental3.Controllers
             context = cityContext;
 
         }
-        public ActionResult Index()
+        public ActionResult Index(int? page)
         {
-
+            int pageSize = 5;
+            int pageNumber = (page ?? 1);
+            // index 
             List<City> citys = context.Collection().ToList();
-            return View(citys);
+
+            return View(citys.ToPagedList(pageNumber, pageSize));
 
         }
 

@@ -1,116 +1,73 @@
-﻿@model IEnumerable<TestCarRental3.Models.Product>
+﻿@model IPagedList<TestCarRental3.Models.Product>
+<link href="~/Content/PagedList.css" rel="stylesheet" type="text/css" />
 @{
-    ViewBag.Title = "Cars";
+    ViewBag.Title = "Cars";  
 }
 
-
+@using PagedList;
+@using PagedList.Mvc;
 <h2>Cars</h2>
 
-<div class="col-md-2">
-    <h4>Filter by Category</h4>
-    <div class="list-group">
-        <hr />
-        <p>Sort by Brand</p>
-        <hr />
-        <select class="field">
-            <option value=""> dabedad</option>
-        </select>
+<div class="container">
 
-        <hr />
-        <p>Sort by Model</p>
-        <hr />
-        <select class="field">
-            <option value="">dabeda</option>
-        </select>
+    <div class="row">
+        <div class="col-lg-3">            
+            <div class="list-group">
+                @using (Html.BeginForm("Index", "Cars", FormMethod.Get))
+                {
+                    <p>
+                        Find by name: @Html.TextBox("SearchString", ViewBag.CurrentFilter as string)
+                        <input type="submit" value="Search" />
+                    </p>
+                }
+                @Html.ActionLink("Car Brand", "Index", new { sortOrder = ViewBag.NameSortParm })
+                @Html.ActionLink("Car Engine", "Index", new { sortOrder = ViewBag.DateSortParm })
+                <a href="#" class="list-group-item">Order By Engine</a>
+            </div>
+        </div>   
 
+        <div class="col-lg-9">
+            <div class="row">
+                @foreach (var item in Model)
+                {
+                    <div class="col-lg-4 col-md-6 mb-4">
+                        <div class="card h-100" style="border: solid thin whitesmoke">
+                            <a href="#"><img class="card-img-top" src="~/imgcars/@item.image"></a>
+                            <div class="card-body">
+                                <div class="col-md-12">
+                                    <strong>Brand: @Html.ActionLink(item.car_brand, "Details", new { id = item.Id })</strong>
+                                </div>
+                                <div class="col-md-12">
+                                    <strong>Model: @item.car_model</strong>
+                                </div>
+                                <div class="col-md-12">
+                                    <p>Year: @item.YearOfManufacturing</p>
+                                </div>
+                                <div class="col-md-12">
+                                    <p>Engine: @item.Engine</p>
+                                </div>
 
-        <hr />
-        <p>Sort by Type</p>
-        <hr />
-        <li>
-            <label for="checkid" style="word-wrap:break-word">
-                <input id="checkid" type="checkbox" value="Suv" />SUV
-            </label>
-        </li>
-        <li>
-            <label for="checkid" style="word-wrap:break-word">
-                <input id="checkid" type="checkbox" value="Sport" />Sport
-            </label>
-        </li>
-        <li>
-            <label for="checkid" style="word-wrap:break-word">
-                <input id="checkid" type="checkbox" value="Sport" />Touring
-            </label>
-        </li>
-
-
-        <hr />
-        <p> Sort By mileage</p>
-        <hr />
-        <li>
-            <label for="checkid" style="word-wrap:break-word">
-                <input id="checkid" type="checkbox" value="Sport" />Low To Hight
-            </label>
-        </li>
-        <li>
-            <label for="checkid" style="word-wrap:break-word">
-                <input id="checkid" type="checkbox" value="Sport" />Hight to Low
-            </label>
-        </li>
-
-
-        <hr />
-        <p>Sort By GearBox</p>
-        <hr />
-        <li>
-            <label for="checkid" style="word-wrap:break-word">
-                <input id="checkid" type="checkbox" value="Sport" />Automatic
-            </label>
-        </li>
-        <li>
-            <label for="checkid" style="word-wrap:break-word">
-                <input id="checkid" type="checkbox" value="Sport" />Manual
-            </label>
-        </li>
-
-
-
-        <a href="#" class="btn btn-default"> Filter</a>
-    </div>
- </div>
-
-        <div class="col-md-10">
-            @foreach (var item in Model)
-            {
-            <div class="col-md-4" style="height:450px;width:370px;padding:10px;margin:10px;border: solid thin whitesmoke">
-                <div class="col-md-12">
-                    <img class="img" style="height:190px;width:320px;" src="~/imgcars/@item.image" />
-                </div>
-                <div class="col-md-12">
-                    <strong>Brand: @Html.ActionLink(item.car_brand, "Details", new { id = item.Id })</strong>
-                </div>
-                <div class="col-md-12">
-                    <p>Model: @item.car_model</p>
-                </div>
-
-                <div class="col-md-12">
-                    <h4>Year: @item.YearOfManufacturing</h4>
-                </div>
-                <div class="col-md-12">
-                    <h4>Engine: @item.Engine</h4>
-                </div>
-                
-                <div class="col-md-12">
-                    <h4>Gearbox: @item.Gearbox</h4>
-                </div>
-                <div class="col-md-12">
-                    <h4>@item.hire_cost $/Day</h4> 
-                </div>
-                <div class="col-md-12">
-                    <a href="@Url.Action("BookNow", "Booking", new { Id=item.Id })" class="btn btn-default">Book Now</a>
-                    <a href="@Url.Action("Details", "Cars", new { Id=item.Id })" class="btn btn-default">Details</a>
+                                <div class="col-md-12">
+                                    <p>Gearbox: @item.Gearbox</p>
+                                </div>
+                                <div class="col-md-12">
+                                    <p>@item.hire_cost $/Day</p>
+                                </div>
+                                <div class="col-md-12">
+                                    <a href="@Url.Action("BookNow", "Booking", new { Id=item.Id })" class="btn btn-primary">Book Now</a>
+                                    <a href="@Url.Action("Details", "Cars", new { Id=item.Id })" class="btn btn-primary">Details</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+                <div class="container" style="margin-left: 360px;">
+                Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+                    </div>
+                <div class="container" style="margin-left: 350px;">
+                    @Html.PagedListPager(Model, page => Url.Action("Index", "Cars", new { page, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter }))
                 </div>
             </div>
-            }
-        </div>
-        <div class="col-md-12 clearfix" />
+                </div>              
+     </div><!-- /.row -->
+</div><!-- container -->

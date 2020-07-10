@@ -24,7 +24,6 @@ namespace TestCarRental3
                "{controller}/{action}/{id}", // URL with parameters
                new { controller = "Cars", action = "Index", id = UrlParameter.Optional } // Parameter defaults
            );
-
         }
     }
 }

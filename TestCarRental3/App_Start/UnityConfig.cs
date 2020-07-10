@@ -15,7 +15,9 @@ namespace TestCarRental3
     public static class UnityConfig
     {
         #region Unity Container
+#pragma warning disable IDE0044 // Add readonly modifier
         private static Lazy<IUnityContainer> container =
+#pragma warning restore IDE0044 // Add readonly modifier
           new Lazy<IUnityContainer>(() =>
           {
               var container = new UnityContainer();
@@ -47,10 +49,12 @@ namespace TestCarRental3
 
             // TODO: Register your type's mappings here.
             // container.RegisterType<IProductRepository, ProductRepository>();
-           container.RegisterType<IRepository<Product>, SQLRepository<Product>>();
-           container.RegisterType<AccountController>(new InjectionConstructor());
-           container.RegisterType<IRepository<Contact>, SQLRepository<Contact>>();
-           container.RegisterType<IRepository<City>, SQLRepository<City>>();
+            container.RegisterType<IRepository<Product>, SQLRepository<Product>>();
+            container.RegisterType<AccountController>(new InjectionConstructor());
+            container.RegisterType<IRepository<Contact>, SQLRepository<Contact>>();
+            container.RegisterType<IRepository<City>, SQLRepository<City>>();
+            container.RegisterType<ManageController>(new InjectionConstructor());
+            container.RegisterType<IRepository<Country>, SQLRepository<Country>>();
         }
     }
 }

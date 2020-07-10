@@ -92,5 +92,9 @@ C:\TestCarRental3\TestCarRental3\bin\Microsoft.Owin.Security.Google.xml
 C:\TestCarRental3\TestCarRental3\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
 C:\TestCarRental3\TestCarRental3\bin\Microsoft.Owin.Security.OAuth.xml
 C:\TestCarRental3\TestCarRental3\bin\Microsoft.Owin.Security.Twitter.xml
-C:\TestCarRental3\TestCarRental3\obj\Debug\TestCarRental3.Migrations.information.resources
+C:\TestCarRental3\TestCarRental3\bin\PagedList.dll
+C:\TestCarRental3\TestCarRental3\bin\PagedList.Mvc.dll
+C:\TestCarRental3\TestCarRental3\bin\PagedList.xml
+C:\TestCarRental3\TestCarRental3\bin\PagedList.Mvc.xml
+C:\TestCarRental3\TestCarRental3\obj\Debug\TestCarRental3.Migrations.example.resources
 C:\TestCarRental3\TestCarRental3\obj\Debug\CarRental3.csproj.GenerateResource.cache

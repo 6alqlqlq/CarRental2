@@ -77,9 +77,9 @@
                            
                         @Html.ActionLink("Penalty", "ControlPanel", "ControlPanel", htmlAttributes: new { @class = "cp-dropdown-btn" })
                            
-                        @Html.ActionLink("Country", "ControlPanel", "ControlPanel", htmlAttributes: new { @class = "cp-dropdown-btn" })
+                        @Html.ActionLink("Country", "Index", "Country", routeValues: new { area = "Country" }, htmlAttributes: new { @class = "cp-dropdown-btn" })
                             
-                        @Html.ActionLink("City", "ControlPanel", "ControlPanel", htmlAttributes: new { @class = "cp-dropdown-btn" })
+                        @Html.ActionLink("City", "Index", "City", routeValues: new { area = "City" }, htmlAttributes: new { @class = "cp-dropdown-btn" })
                       
                     </div>
                 </div>

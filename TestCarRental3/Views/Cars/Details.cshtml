@@ -5,13 +5,12 @@
 }
 <h2>@Html.DisplayFor(model => model.car_model)</h2>
 
-<div>
+<div class="container">
     <div class="col-md-2">
         <img class="img-responsive" src="~/imgcars/@Model.image" />
     </div>
     <div class="col-md-10">
         <dl class="dl-horizontal">
-
             <dt>
                 @Html.DisplayNameFor(model => model.car_brand)
             </dt>
@@ -37,10 +36,10 @@
                 $@Html.DisplayFor(model => model.hire_cost)
             </dd>
             <dt></dt>
-            <dd><a href="@Url.Action("AddToBasket", "Basket", new { Id=Model.Id })" class="btn btn-default">Add To Basket</a></dd>
+            <dd><a href="@Url.Action("AddToBasket", "Basket", new { Id=Model.Id })" class="btn btn-primary">Add To Basket</a></dd>
             <dt></dt>
             <dd>@Html.ActionLink("Back to List", "Index")</dd>
         </dl>
     </div>
 </div>
-<div class="col-md-12 clearfix"></div>
+

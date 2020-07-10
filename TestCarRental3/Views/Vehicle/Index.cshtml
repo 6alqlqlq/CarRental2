@@ -1,5 +1,7 @@
-﻿@model IEnumerable<TestCarRental3.Models.Product>
-
+﻿@model IPagedList<TestCarRental3.Models.Product>
+@using PagedList;
+@using PagedList.Mvc;
+<link href="~/Content/PagedList.css" rel="stylesheet" type="text/css" />
 @{
     ViewBag.Title = "Index";
 }
@@ -14,93 +16,100 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.Id)
+            @Html.DisplayNameFor(model => model.First().Id)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.car_brand)
+            @Html.DisplayNameFor(model => model.First().car_brand)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.car_model)
+            @Html.DisplayNameFor(model => model.First().car_model)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.YearOfManufacturing)
+            @Html.DisplayNameFor(model => model.First().YearOfManufacturing)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.image)
+            @Html.DisplayNameFor(model => model.First().image)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.capacity)
+            @Html.DisplayNameFor(model => model.First().capacity)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.doors)
+            @Html.DisplayNameFor(model => model.First().doors)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Engine)
+            @Html.DisplayNameFor(model => model.First().Engine)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Gearbox)
+            @Html.DisplayNameFor(model => model.First().Gearbox)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.status)
+            @Html.DisplayNameFor(model => model.First().status)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.CreatedOn)
+            @Html.DisplayNameFor(model => model.First().CreatedOn)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.ModifiedOn)
+            @Html.DisplayNameFor(model => model.First().ModifiedOn)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.hire_cost)
+            @Html.DisplayNameFor(model => model.First().hire_cost)
         </th>
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Id)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.car_brand)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.car_model)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.YearOfManufacturing)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.image)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.capacity)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.doors)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Engine)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Gearbox)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.status)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CreatedOn)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ModifiedOn)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.hire_cost)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
-            @Html.ActionLink("Details", "Details", new { id = item.Id }) |
-            @Html.ActionLink("Delete", "Delete", new { id = item.Id })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.car_brand)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.car_model)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.YearOfManufacturing)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.image)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.capacity)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.doors)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Engine)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Gearbox)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.status)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CreatedOn)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ModifiedOn)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.hire_cost)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+            </td>
+        </tr>
+    }
 </table>
+<div class="pagination justify-content-center" style="margin-left: 360px;">
+    Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+</div>
+<div class="container" style="margin-left: 350px;">
+    @Html.PagedListPager(Model, page => Url.Action("Index", "Vehicle", new { page, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter }))
+</div>

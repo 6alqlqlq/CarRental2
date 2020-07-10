@@ -98,6 +98,13 @@
     <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.12.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
+    <Reference Include="PagedList, Version=1.17.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.1.17.0.0\lib\net40\PagedList.dll</HintPath>
+    </Reference>
+    <Reference Include="PagedList.Mvc, Version=4.5.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.Mvc.4.5.0.0\lib\net40\PagedList.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationFramework" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -194,6 +201,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\CarsController.cs" />
     <Compile Include="Controllers\CityController.cs" />
+    <Compile Include="Controllers\CountryController.cs" />
     <Compile Include="Controllers\VehicleController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -205,14 +213,19 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Migrations\202004220705318_information.cs" />
-    <Compile Include="Migrations\202004220705318_information.designer.cs">
+    <Compile Include="Migrations\202004220705318_information.Designer.cs">
       <DependentUpon>202004220705318_information.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202007091411068_additionalCityCountry.cs" />
+    <Compile Include="Migrations\202007091411068_additionalCityCountry.Designer.cs">
+      <DependentUpon>202007091411068_additionalCityCountry.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\BaseEntity.cs" />
     <Compile Include="Models\CarsCategories.cs" />
     <Compile Include="Models\City.cs" />
+    <Compile Include="Models\Country.cs" />
     <Compile Include="Models\Contact.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
@@ -250,6 +263,7 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\PagedList.css" />
     <Content Include="Content\Site.css" />
     <Content Include="Content\Style.css" />
     <Content Include="favicon.ico" />
@@ -310,6 +324,9 @@
     <Content Include="Content\bootstrap-reboot.css.map" />
     <Content Include="Content\bootstrap-grid.min.css.map" />
     <Content Include="Content\bootstrap-grid.css.map" />
+    <Content Include="..\.editorconfig">
+      <Link>.editorconfig</Link>
+    </Content>
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <None Include="Scripts\jquery-3.5.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.5.1.js" />
@@ -452,12 +469,16 @@
     <Content Include="Scripts\popper.js.map" />
     <Content Include="Scripts\popper-utils.min.js.map" />
     <Content Include="Scripts\popper-utils.js.map" />
+    <Content Include="Views\Country\Create.cshtml" />
+    <Content Include="Views\Country\Edit.cshtml" />
+    <Content Include="Views\Country\Delete.cshtml" />
+    <Content Include="Views\Country\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="bin\roslyn\" />
     <Folder Include="Views\Booking\" />
-    <Folder Include="Views\Country\" />
+    <Folder Include="Views\CarsTest\" />
     <Folder Include="Views\Penalty\" />
     <Folder Include="Views\Price\" />
   </ItemGroup>
@@ -474,6 +495,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202004220705318_information.resx">
       <DependentUpon>202004220705318_information.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202007091411068_additionalCityCountry.resx">
+      <DependentUpon>202007091411068_additionalCityCountry.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

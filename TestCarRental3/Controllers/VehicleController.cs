@@ -9,6 +9,8 @@ using System.Web.Mvc;
 using TestCarRental3.Models;
 using TestCarRental3.Datainmemory;
 using TestCarRental3.Contracts;
+using PagedList;
+using PagedList.Mvc;
 
 namespace TestCarRental3.Controllers 
 {
@@ -22,11 +24,13 @@ namespace TestCarRental3.Controllers
             context = productContext;
             
         }
-        public ActionResult Index()
+        public ActionResult Index(int? page)
         {
-
+            int pageSize = 5;
+            int pageNumber = (page ?? 1);
+            // index 
             List<Product> products = context.Collection().ToList();
-            return View(products);
+            return View(products.ToPagedList(pageNumber, pageSize));
 
         }
 

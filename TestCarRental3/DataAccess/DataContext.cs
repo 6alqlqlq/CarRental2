@@ -17,5 +17,6 @@ namespace TestCarRental3.DataAccess
         public DbSet<Product> Product { get; set; }
         public DbSet<Contact> Contact { get; set; }
         public DbSet<City> City { get; set; }
+        public DbSet<Country> Country { get; set; }
     }
 }

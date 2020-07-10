@@ -23,8 +23,8 @@ namespace TestCarRental3.Models
         public string status { get; set; }
         public Nullable<System.DateTime> CreatedOn { get; set; }
         public Nullable<System.DateTime> ModifiedOn { get; set; }
-        
-        public int hire_cost { get; set; }
+
+        public int hire_cost { get; set; }     
 
        
     }
