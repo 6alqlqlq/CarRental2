@@ -26,7 +26,23 @@
 *.a
 *.lib
 
-# Executables
-*.exe
-*.out
-*.app
+node_modules/
+/Scripts
+# NuGet packages directory
+!/packages/*/lib/*.dll
+!/packages/*/lib/*/*.dll
+####################
+# VS Upgrade stuff #
+####################
+UpgradeLog.XML
+_UpgradeReport_Files/
+###############
+# Directories #
+###############
+bin/
+obj/
+######################
+# Logs #
+######################
+*.log
+######################
